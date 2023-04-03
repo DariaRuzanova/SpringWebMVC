@@ -1,8 +1,13 @@
 package homework2_3.model;
 
+import com.google.gson.annotations.Expose;
+
 public class Post {
+
     private long id;
+
     private String content;
+
 
     public Post() {
     }
