@@ -34,8 +34,13 @@ public class PostRepository {
         if (post.getId() == 0) {
             post.setId(ID.incrementAndGet());
             listPosts.put(post.getId(), post);
-        } else {
-            listPosts.put(post.getId(), post);
+        } else{
+            if (listPosts.containsKey(post.getId())){
+                listPosts.put(post.getId(), post);
+            }
+            else {
+                throw new NotFoundException("Сохранение поста не возможно. Пост с id: " + post.getId() + " не найден.");
+            }
         }
         return post;
     }
